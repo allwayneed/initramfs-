@@ -1,0 +1,9 @@
+# 1. 展開したカーネルディレクトリ配下のファイルをすべて無視
+utils/linux-6.1.130/*
+utils/busybox-1.37.0/*
+# 2. ただし .config だけは例外的に追跡対象にする
+!utils/linux-6.1.130/.config
+!utils/busybox-1.37.0/.config
+# 圧縮アーカイブも除外
+*.tar.xz
+*.tar.bz2
