@@ -26,4 +26,4 @@ echo "|   version 1.0   |"
 echo "==================="
 echo ""
 
-exec switch_root /newroot /sbin/init || rescuecurl -O https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.130.tar.xz
+exec switch_root /newroot /sbin/init || rescue
