@@ -7,7 +7,13 @@ rescue() {
     echo "  2. Is the root= setting (UUID/partition) correct?"
     echo "  3. Run a filesystem check (fsck)."
     echo "Dropping to an emergency shell..."
-    exec setsid cttyhack /bin/sh
+    exec setsid cttyhack /bin/sh || reex
+}
+reex() {
+    umount /proc
+    umount /sys
+    umount /dev
+    exit
 }
 
 mount -t proc proc /proc || rescue
@@ -20,4 +26,4 @@ echo "|   version 1.0   |"
 echo "==================="
 echo ""
 
-rescue
+exec switch_root /newroot /sbin/init || rescue
