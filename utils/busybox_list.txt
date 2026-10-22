@@ -1,0 +1,5 @@
+sh
+mount
+clear
+echo
+git reset --soft HEAD~1
