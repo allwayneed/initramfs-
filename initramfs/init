@@ -9,12 +9,6 @@ rescue() {
     echo "Dropping to an emergency shell..."
     exec setsid cttyhack /bin/sh || reex
 }
-reex() {
-    umount -l /proc
-    umount -l /sys
-    umount -l /dev
-    exit
-}
 
 mount -t proc proc /proc || rescue
 mount -t sysfs sysfs /sys || rescue
@@ -26,4 +20,7 @@ echo "|   version 1.0   |"
 echo "==================="
 echo ""
 
-exec switch_root /newroot /sbin/init || rescue
+
+
+exec switch_root /newroot /sbin/init
+rescue
