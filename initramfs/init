@@ -1,4 +1,5 @@
 #!/bin/sh
+
 rescue() {
     echo "===[!ERROR!SORRY!]==="
     echo "initramfs: A critical step failed."
@@ -21,5 +22,6 @@ echo ""
 modprobe sirane_core || rescue
 mkdir -p /newroot
 mount /dev/sda1 /newroot || rescue
-exec switch_root /newroot /sbin/init
-rescue
+
+exec switch_root /newroot /sbin/init 
+#└If this fails, it'll trigger a kernel panic and crash.

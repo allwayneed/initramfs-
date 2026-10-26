@@ -13,6 +13,7 @@ initramfs/dev/*
 initramfs/proc/*
 initramfs/sys/*
 initramfs/etc/*
+initramfs/lib/*
 # アーカイブを除外
 *.tar.xz
 *.tar.bz2
