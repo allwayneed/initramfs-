@@ -7,9 +7,8 @@ rescue() {
     echo "  2. Is the root= setting (UUID/partition) correct?"
     echo "  3. Run a filesystem check (fsck)."
     echo "Dropping to an emergency shell..."
-    exec setsid cttyhack /bin/sh || reex
+    exec setsid cttyhack /bin/sh
 }
-
 mount -t proc proc /proc || rescue
 mount -t sysfs sysfs /sys || rescue
 mount -t devtmpfs devtmpfs /dev || rescue
@@ -19,8 +18,8 @@ echo "| forma initramfs |"
 echo "|   version 1.0   |"
 echo "==================="
 echo ""
-
-
-
+modprobe sirane_core || rescue
+mkdir -p /newroot
+mount /dev/sda1 /newroot || rescue
 exec switch_root /newroot /sbin/init
 rescue
