@@ -8,6 +8,11 @@ utils/busybox-1.37.0/*
 !utils/busybox-1.37.0/.config
 !utils/busybox-1.37.0/
 
+# initramfsの仮想ファイル群の排除
+initramfs/dev/*
+initramfs/proc/*
+initramfs/sys/*
+initramfs/etc/*
 # アーカイブを除外
 *.tar.xz
 *.tar.bz2
